@@ -1,0 +1,21 @@
+
+<plugin id="cordova-plugin-security-checks" version="1.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>SecurityPlugin</name>
+    <js-module src="www/SecurityPlugin.js" name="SecurityPlugin">
+        <clobbers target="SecurityPlugin" />
+    </js-module>
+
+    <platform name="android">
+        <source-file src="src/android/SecurityPlugin.java" target-dir="src/cordova_plugin_security_checks" />
+        <source-file src="src/android/DeviceIntegrity.java" target-dir="src/cordova_plugin_security_checks" />
+        <uses-permission android:name="android.permission.INTERNET" />
+    </platform>
+
+    <platform name="ios">
+        <source-file src="src/ios/SecurityPlugin.m" />
+        <source-file src="src/ios/SecurityChecks.m" />
+        <source-file src="src/ios/SecurityChecks.h" />
+        <framework src="Security.framework" />
+        <framework src="UIKit.framework" />
+    </platform>
+</plugin>
